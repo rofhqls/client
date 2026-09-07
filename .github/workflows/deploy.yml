@@ -26,6 +26,5 @@ jobs:
             docker stop reactclient || true
             docker rm reactclient || true
             docker build -t reactclient .
-
             docker build --no-cache -t reactclient .
             docker run -d --name reactclient -p 80:80 reactclient
