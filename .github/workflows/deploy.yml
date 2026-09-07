@@ -18,13 +18,13 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
 
+          script_stop: true
           script: |
             cd /home/ubuntu/client
             git pull origin main
             
             docker stop reactclient || true
             docker rm reactclient || true
-
             docker build -t reactclient .
 
             docker build --no-cache -t reactclient .
